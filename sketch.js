@@ -3,6 +3,37 @@ let b = 0; // Współczynnik b
 let c = 0; // Współczynnik c
 let xValue = -3; // Punkt do przesunięcia
 
+function setup() {
+    createCanvas(600, 400);
+    
+    // Tworzenie suwaków do wprowadzania współczynników
+    createP('Współczynnik a:');
+    let aSlider = createSlider(-5, 5, 1, 0.1);
+    createP('Współczynnik b:');
+    let bSlider = createSlider(-5, 5, 0, 0.1);
+    createP('Współczynnik c:');
+    let cSlider = createSlider(-5, 5, 0, 0.1);
+    
+    // Ustawienia zmiany współczynników na suwakach
+    aSlider.input(() => {
+      a = aSlider.value();
+    });
+    bSlider.input(() => {
+      b = bSlider.value();
+    });
+    cSlider.input(() => {
+      c = cSlider.value();
+    });
+    
+    // Tworzenie suwaka do przesuwania punktu
+    createP('Przesuń punkt (x):');
+    let xSlider = createSlider(-10, 10, xValue, 0.1);
+    xSlider.input(() => {
+      xValue = xSlider.value();
+    });
+  }
+  
+
 function draw() {
   background(255);
   
